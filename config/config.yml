@@ -1,0 +1,38 @@
+default_url_options:
+  development: http://localhost:5000
+  test:        http://localhost:5000
+  production:  http://example.com
+  
+singly_api_base: https://api.singly.com
+
+trigger_words:
+  -  hopeless
+  -  sad
+  -  disappointed
+  -  depressed
+  -  inadequate
+  -  mourn
+  -  dejected
+  -  suicidal
+
+  # -  disappointing
+  # -  tragedy
+  # -  inconsolable
+  # -  devastated
+  # -  anguished
+  # -  anguish
+  # -  letdown
+  # -  undone
+  # -  dismal
+  # -  somber
+  # -  tragic
+  # -  mourning
+  # -  tearful
+  # -  harrowing
+  # -  heart-breaking
+  # -  terrible
+  # -  crying
+  # -  sobbing
+  # -  lonely
+  # -  abandoned
+  # -  abandonment
