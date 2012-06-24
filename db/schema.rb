@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120624034247) do
+ActiveRecord::Schema.define(:version => 20120624052429) do
 
   create_table "campaigns", :force => true do |t|
     t.integer  "owner_id"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(:version => 20120624034247) do
     t.integer  "video_type"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "sponsors", :force => true do |t|
+    t.integer  "user_id"
+    t.float    "amount_per_mile"
+    t.boolean  "paid"
+    t.string   "receipt_token"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end
