@@ -39,4 +39,9 @@ class Campaign < ActiveRecord::Base
   def total_raised
     total_miles * total_per_mile
   end
+  
+  def days_remaining
+    res = (end_date - Time.now.to_date).to_i
+    return 0 if res < 0
+  end
 end

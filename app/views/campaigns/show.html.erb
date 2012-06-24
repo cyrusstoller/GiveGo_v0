@@ -26,11 +26,11 @@
         </tr>
         <tr>
           <td>Total Raised</td>
-          <td>$<%= @campaign.total_raised %></td>
+          <td><%= number_to_currency(@campaign.total_raised, :precision => 2) %></td>
         </tr>
         <tr>
           <td>Pledged per mile</td>
-          <td>$<%= @campaign.total_per_mile %></td>
+          <td><%= number_to_currency(@campaign.total_per_mile, :precision => 2) %></td>
         </tr>
         <tr>
           <td>Total Miles</td>
@@ -38,6 +38,9 @@
         </tr>
       </tbody>
     </table>
+    
+    <h4>Share this link with your friends</h4>
+    <%= text_field_tag nil, campaign_url(@campaign), :class => "span8", :readonly => "readonly" %>
 
     <div class="form-actions">
       <%= link_to t('.back', :default => t("helpers.links.back")),
