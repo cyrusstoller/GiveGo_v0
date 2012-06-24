@@ -11,7 +11,7 @@ class CampaignUserRelationshipsController < ApplicationController
 
     respond_to do |format|
       if @campaign_user_relationship.save
-        format.html { redirect_to @campaign_user_relationship, notice: 'CampaignUserRelationship was successfully created.' }
+        format.html { redirect_to @campaign_user_relationship.campaign, notice: "You're now pledging $#{@campaign_user_relationship.amount_per_mile} per mile." }
         format.json { render json: @campaign_user_relationship, status: :created, location: @campaign_user_relationship }
       else
         format.html { 
