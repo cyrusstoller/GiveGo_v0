@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120624053430) do
+ActiveRecord::Schema.define(:version => 20120624062741) do
 
   create_table "activities", :force => true do |t|
     t.float    "distance"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(:version => 20120624053430) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "campaign_user_relationships", :force => true do |t|
+    t.integer  "campaign_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "campaigns", :force => true do |t|
     t.integer  "owner_id"
     t.date     "start_date"
@@ -29,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20120624053430) do
     t.integer  "charity_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "message"
   end
 
   create_table "charities", :force => true do |t|

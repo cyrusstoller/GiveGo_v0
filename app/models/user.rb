@@ -14,4 +14,11 @@
 
 class User < ActiveRecord::Base
   attr_accessible :dwolla_customer_token, :email, :fb_id, :name
+  
+  has_many :campaigns
+  
+  has_many :campaign_user_relationships
+  has_many :sponsored_campaigns, :through => :campaign_user_relationships, :source => :campaign
+  
+  has_many :sponsorships, :class_name => "Sponsor", :foreign_key => "user_id"
 end

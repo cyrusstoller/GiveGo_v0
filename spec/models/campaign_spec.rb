@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20120624052429
+# Schema version: 20120624062741
 #
 # Table name: campaigns
 #
@@ -10,6 +10,7 @@
 #  charity_id :integer
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
+#  message    :text
 #
 
 require 'spec_helper'
