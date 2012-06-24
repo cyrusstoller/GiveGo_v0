@@ -25,6 +25,10 @@ group :assets do
   gem 'therubyracer'
 end
 
+group :development do
+  gem "twitter-bootstrap-rails"
+end
+
 gem 'jquery-rails'
 
 group :test do
