@@ -14,4 +14,6 @@
 
 class User < ActiveRecord::Base
   attr_accessible :dwolla_customer_token, :email, :fb_id, :name
+  
+  has_many :campaigns
 end

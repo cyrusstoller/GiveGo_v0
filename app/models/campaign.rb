@@ -14,4 +14,6 @@
 
 class Campaign < ActiveRecord::Base
   attr_accessible :charity_id, :end_date, :owner_id, :start_date
+  
+  belongs_to :owner, :class_name => "User", :foreign_key => "owner_id"
 end
