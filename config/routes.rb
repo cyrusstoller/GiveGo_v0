@@ -1,10 +1,11 @@
 GiveGo::Application.routes.draw do
+  resources :campaigns
+
   root :to => 'pages#welcome'
 
   match '/welcome'  => 'pages#welcome',  :as => "welcome",  :via => :get
   match '/about'    => 'pages#about',    :as => "about",    :via => :get
   match '/create'    => 'pages#create',    :as => "create",    :via => :get
-  match '/campaign'    => 'pages#campaign',    :as => "campaign",    :via => :get
   match '/sponsor'    => 'pages#sponsor',    :as => "sponsor",    :via => :get
   
 
