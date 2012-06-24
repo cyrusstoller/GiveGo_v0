@@ -2,6 +2,10 @@
 
 class PagesController < ApplicationController
   def welcome
+    if session[:access_token]
+      redirect_to campaigns_path
+      return
+    end
     render :layout => "splash"
   end
   
