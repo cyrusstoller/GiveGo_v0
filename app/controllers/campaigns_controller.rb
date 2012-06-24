@@ -1,4 +1,6 @@
 class CampaignsController < ApplicationController
+  before_filter :authenticate_user, :except => [:index, :show]
+  
   # GET /campaigns
   # GET /campaigns.json
   def index
@@ -78,6 +80,16 @@ class CampaignsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to campaigns_url }
       format.json { head :no_content }
+    end
+  end
+  
+  private
+  
+  def authenticate_user
+    if session[:user_id].nil?
+      flash[:notice] = "Ooops you need to be signed in to do that."
+      redirect_to :action => :index
+      return
     end
   end
 end
