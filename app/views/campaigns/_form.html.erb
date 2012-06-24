@@ -17,6 +17,7 @@
       <%= f.date_select :end_date, :class => 'date_select' %>
     </div>
   </div>
+
   <div class="control-group">
     <%= f.label :charity_id, :class => 'control-label' %>
     <div class="controls">
@@ -25,8 +26,16 @@
   </div>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= f.submit nil, :class => 'btn btn-primary btn-large' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                campaigns_path, :class => 'btn' %>
+                campaigns_path, :class => 'btn btn-large' %>
   </div>
 <% end %>
+
+
+<!-- begin static-->
+
+<div class="btn-group" data-toggle="buttons-radio">
+  <button type="button" class="btn active btn-large">One Month</button>
+  <button type="button" class="btn btn-large">3 Months</button>
+</div>

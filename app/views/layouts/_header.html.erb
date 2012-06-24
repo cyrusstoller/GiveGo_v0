@@ -21,8 +21,20 @@
         </ul>
         <% if session[:access_token] %>
         <ul class="nav pull-right">
-          <li><%= link_to "Sign Out", logout_path %></li>
+                           <li id="fat-menu" class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Max Schultz <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li><%= link_to "Sign Out", logout_path %></li>
+                    </ul>
+                  </li>
+
+          
         </ul>
+
         <% end %>          
       </div>
  
