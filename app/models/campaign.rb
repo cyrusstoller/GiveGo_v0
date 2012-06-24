@@ -27,4 +27,8 @@ class Campaign < ActiveRecord::Base
   validates_presence_of :owner_id
   validates_presence_of :message
   validates_presence_of :charity_id
+  
+  def total_per_mile
+    campaign_user_relationships.sum(:amount_per_mile)
+  end
 end
