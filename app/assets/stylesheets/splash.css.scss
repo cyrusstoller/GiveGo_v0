@@ -28,11 +28,11 @@ body{
 }
 
 .logotype {
-font-size: 140px;
+font-size: 100px;
 font-family: 'Fredoka One';
 font-style: italic;
-margin-bottom: 60px;
-margin-top: 15%;
+margin-bottom: 40px;
+margin-top: 60px;
 color: #fff;
 text-shadow: 0px 2px 3px #000;
 
@@ -41,8 +41,24 @@ text-shadow: 0px 2px 3px #000;
 
 .facebookconnect {
 
-margin-bottom: 200px;
-font-size: 26px;
-padding: 20px 35px;
+font-size: 24px;
+padding: 15px 30px;
+
+}
+
+.fuckingbox {
+
+margin:0 auto;
+padding: 10px; 
+margin-top: 100px;
+		text-align:left;
+		height:22em;
+		width:55em;
+		clear:left;
+		text-align: center; background: rgb(54, 25, 25); /* Fall-back for browsers that don't support rgba */
+    background: rgba(55, 55, 55, .9);
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 2px 3px #000;
 
 }
