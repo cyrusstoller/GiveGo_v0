@@ -16,7 +16,7 @@ class CampaignUserRelationshipsController < ApplicationController
       else
         format.html { 
           if request.env["HTTP_REFERER"].nil?
-            redirect_to charities_path
+            redirect_to campaigns_path
           else
             redirect_to :back
           end
@@ -49,7 +49,7 @@ class CampaignUserRelationshipsController < ApplicationController
     @campaign_user_relationship.destroy
 
     respond_to do |format|
-      format.html { redirect_to charities_path }
+      format.html { redirect_to @campaign_user_relationship.campaign }
       format.json { head :no_content }
     end
   end

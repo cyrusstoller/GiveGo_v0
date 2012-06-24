@@ -34,11 +34,15 @@
 
   <div class="span4">
     <% if @campaign.owner_id == session[:user_id] %>
-      blah
+      <!-- This is you -->
+      <%= render "campaign_user_relationships/my_campaign", :campaign => @campaign %>
     <% elsif @campaign.sponsors.find_by_id(session[:user_id]).nil? %>
+      <!-- become a new sponsor -->
       <%= render "campaign_user_relationships/add_sponsor_form", :campaign => @campaign %>
     <% else %>
-      currently a sponsor
+      <!-- already a sponsor -->
+      <%= render "campaign_user_relationships/remove_sponsorship", 
+          :campaign_user_relationship =>  @campaign.campaign_user_relationships.find_by_user_id(session[:user_id]) %>
     <% end %>
   </div>
 </div>
