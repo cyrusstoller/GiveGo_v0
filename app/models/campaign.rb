@@ -31,4 +31,12 @@ class Campaign < ActiveRecord::Base
   def total_per_mile
     campaign_user_relationships.sum(:amount_per_mile)
   end
+  
+  def total_miles
+    activities.sum(:distance)
+  end
+  
+  def total_raised
+    total_miles * total_per_mile
+  end
 end
