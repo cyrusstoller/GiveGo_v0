@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120624052739) do
+ActiveRecord::Schema.define(:version => 20120624053430) do
 
   create_table "activities", :force => true do |t|
     t.float    "distance"
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(:version => 20120624052739) do
     t.string   "receipt_token"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "dwolla_customer_token"
+    t.string   "fb_id"
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
 end
