@@ -26,11 +26,11 @@
         </tr>
         <tr>
           <td>Total Raised</td>
-          <td>$<%= @campaign.total_raised %></td>
+          <td><%= number_to_currency(@campaign.total_raised, :precision => 2) %></td>
         </tr>
         <tr>
           <td>Pledged per mile</td>
-          <td>$<%= @campaign.total_per_mile %></td>
+          <td><%= number_to_currency(@campaign.total_per_mile, :precision => 2) %></td>
         </tr>
         <tr>
           <td>Total Miles</td>
