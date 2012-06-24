@@ -11,10 +11,16 @@ class CampaignUserRelationshipsController < ApplicationController
 
     respond_to do |format|
       if @campaign_user_relationship.save
-        format.html { redirect_to @campaign_user_relationship, notice: 'CampaignUserRelationship was successfully created.' }
+        format.html { redirect_to @campaign_user_relationship.campaign, notice: "You're now pledging $#{@campaign_user_relationship.amount_per_mile} per mile." }
         format.json { render json: @campaign_user_relationship, status: :created, location: @campaign_user_relationship }
       else
-        format.html { render action: "new" }
+        format.html { 
+          if request.env["HTTP_REFERER"].nil?
+            redirect_to campaigns_path
+          else
+            redirect_to :back
+          end
+        }
         format.json { render json: @campaign_user_relationship.errors, status: :unprocessable_entity }
       end
     end
@@ -43,7 +49,7 @@ class CampaignUserRelationshipsController < ApplicationController
     @campaign_user_relationship.destroy
 
     respond_to do |format|
-      format.html { redirect_to campaign_user_relationships_url }
+      format.html { redirect_to @campaign_user_relationship.campaign }
       format.json { head :no_content }
     end
   end
