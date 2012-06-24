@@ -19,4 +19,6 @@ class User < ActiveRecord::Base
   
   has_many :campaign_user_relationships
   has_many :sponsored_campaigns, :through => :campaign_user_relationships, :source => :campaign
+  
+  has_many :sponsorships, :class_name => "Sponsor", :foreign_key => "user_id"
 end

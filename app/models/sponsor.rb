@@ -14,4 +14,6 @@
 
 class Sponsor < ActiveRecord::Base
   attr_accessible :amount_per_mile, :paid, :receipt_token, :user_id
+  
+  belongs_to :user
 end
