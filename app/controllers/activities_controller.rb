@@ -1,10 +1,10 @@
 class ActivitiesController < ApplicationController
-  before_filter :get_campaign
+  before_filter :authenticate_user
   
   # GET /activities
   # GET /activities.json
   def index
-    @activities = @campaign.activities
+    @activities = Activity.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/1
   # GET /activities/1.json
   def show
-    @activity = @campaign.activities.find(params[:id])
+    @activity = Activity.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +26,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/new
   # GET /activities/new.json
   def new
-    @activity = @campaign.activities.build
+    @activity = Activity.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,14 +36,15 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/1/edit
   def edit
-    @activity = @campaign.activities.find(params[:id])
+    @activity = Activity.find(params[:id])
   end
 
   # POST /activities
   # POST /activities.json
   def create
-    @activity = @campaign.activities.build(params[:activity])
-
+    @activity = Activity.new(params[:activity])
+    @activity.campaign_id = @user.current_campaign_id
+    
     respond_to do |format|
       if @activity.save
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
@@ -85,7 +86,18 @@ class ActivitiesController < ApplicationController
   
   private
   
-  def get_campaign
-    @campaign = Campaign.find(params[:campaign_id])
+  def authenticate_user
+    if session[:user_id].nil?
+      flash[:error] = "Oops you need to be signed in."
+      redirect_to root_path
+      return
+    else
+      @user = User.find(session[:user_id])
+      if @user.nil?
+        flash[:error] = "Oops you need to be signed in."
+        redirect_to root_path
+        return
+      end
+    end
   end
 end
