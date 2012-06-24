@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120624062741) do
+ActiveRecord::Schema.define(:version => 20120624092448) do
 
   create_table "activities", :force => true do |t|
     t.float    "distance"
@@ -25,8 +25,11 @@ ActiveRecord::Schema.define(:version => 20120624062741) do
   create_table "campaign_user_relationships", :force => true do |t|
     t.integer  "campaign_id"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.float    "amount_per_mile"
+    t.boolean  "paid"
+    t.string   "receipt_token"
   end
 
   create_table "campaigns", :force => true do |t|
@@ -48,15 +51,6 @@ ActiveRecord::Schema.define(:version => 20120624062741) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "sponsors", :force => true do |t|
-    t.integer  "user_id"
-    t.float    "amount_per_mile"
-    t.boolean  "paid"
-    t.string   "receipt_token"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
   create_table "users", :force => true do |t|
     t.string   "dwolla_customer_token"
     t.string   "fb_id"
@@ -64,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20120624062741) do
     t.string   "email"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.integer  "current_campaign_id"
   end
 
 end

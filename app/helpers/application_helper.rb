@@ -22,4 +22,12 @@ module ApplicationHelper
       "#{@title} | #{base_title}"
     end
   end
+  
+  def current_user
+    if session[:user_id].nil?
+      nil
+    else
+      User.find(session[:user_id])
+    end
+  end
 end
