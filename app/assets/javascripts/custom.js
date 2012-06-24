@@ -122,7 +122,7 @@ $(document).on('click','.dropdown-menu li a',function(){
 	
 	var Datepicker = function(element, options){
 		this.element = $(element);
-		this.format = DPGlobal.parseFormat(options.format||this.element.data('date-format')||'mm/dd/yyyy');
+		this.format = DPGlobal.parseFormat(options.format||this.element.data('date-format')||'yyyy-mm-dd');
 		this.picker = $(DPGlobal.template)
 							.appendTo('body')
 							.on({
@@ -345,6 +345,7 @@ $(document).on('click','.dropdown-menu li a',function(){
 							}
 							var year = this.viewDate.getFullYear();
 							this.date = new Date(year, month, day,0,0,0,0);
+							$("#campaign_end_date").attr("value", DPGlobal.formatDate(new Date(year, month+1, day,0,0,0,0), this.format));
 							this.viewDate = new Date(year, month, day,0,0,0,0);
 							this.fill();
 							this.setValue();
