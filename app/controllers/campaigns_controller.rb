@@ -27,6 +27,8 @@ class CampaignsController < ApplicationController
   # GET /campaigns/new.json
   def new
     @campaign = Campaign.new
+    @campaign.start_date = Time.now.to_date
+    @campaign.end_date = (Time.now + 30.days).to_date
 
     respond_to do |format|
       format.html # new.html.erb

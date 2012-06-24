@@ -1,21 +1,23 @@
-<!-- begin static-->
+<%= form_for @campaign, :html => { :class => 'form-horizontal' } do |f| %>
+
+<%= f.hidden_field :owner_id %>
 
 <h2>Duration</h2>
 <div class="input date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
   <div style="display: inline-block;">
   
-  <input class="datepicker span2" size="16" type="text" value="12-02-2012">
+  <%= f.text_field :start_date, :class => "datepicker span2", :size => "16" %>
   <label style="color: #bbb;">Start date</label>
 </div>
   <div style="display: inline-block;">
   
-  <input class="datepicker span2" size="16" type="text" value="12-02-2012">
+  <%= f.text_field :end_date, :class => "datepicker span2", :size => "16" %>
   <label style="color: #bbb;">End date</label>
 </div>
 
 <br><br>
 <h2>Message to sponsors</h2>
-<textarea id="message_count" style="width: 500px;"></textarea>
+<%= f.text_area :message, :id => 'message_count', :style => "width: 500px;", :rows => 3 %>
 </div>
 <br>
 
@@ -88,41 +90,9 @@
   <br>
 
 <!-- cyrus stuff -->
-
-<%= form_for @campaign, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :owner_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :owner_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :start_date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.date_select :start_date, :class => 'date_select' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :end_date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.date_select :end_date, :class => 'date_select' %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :charity_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :charity_id, :class => 'number_field' %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :message, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :message, :class => 'message_field' %>
-    </div>
-  </div>
-
+  
+  <%= f.hidden_field :charity_id %>
+  
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary btn-large' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
