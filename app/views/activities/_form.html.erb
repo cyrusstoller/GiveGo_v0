@@ -1,0 +1,32 @@
+<%= form_for @activity, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :distance, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :distance, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :stardate, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :stardate, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :activity_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :activity_type, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :campaign_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :campaign_id, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                activities_path, :class => 'btn' %>
+  </div>
+<% end %>

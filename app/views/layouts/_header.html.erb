@@ -10,7 +10,11 @@
       </a>
  
       <!-- Be sure to leave the brand out there if you want it shown -->
-      <%= link_to "GiveGo", root_path, :class => "brand" %>
+      <% if session[:user_id].nil? %>
+        <%= link_to "GiveGo", root_path, :class => "brand" %>
+      <% else %>
+        <%= link_to "GiveGo", campaigns_path, :class => "brand" %>
+      <% end %>
  
       <!-- Everything you want hidden at 940px or less, place within here -->
       <div class="nav-collapse">
