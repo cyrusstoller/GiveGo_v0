@@ -1,4 +1,5 @@
 # == Schema Information
+# Schema version: 20120624185033
 #
 # Table name: users
 #
@@ -10,6 +11,7 @@
 #  created_at            :datetime        not null
 #  updated_at            :datetime        not null
 #  current_campaign_id   :integer
+#  profile_image_url     :string(255)
 #
 
 require 'spec_helper'

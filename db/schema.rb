@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120624092448) do
+ActiveRecord::Schema.define(:version => 20120624185033) do
 
   create_table "activities", :force => true do |t|
     t.float    "distance"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20120624092448) do
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
     t.integer  "current_campaign_id"
+    t.string   "profile_image_url"
   end
 
 end
