@@ -29,6 +29,7 @@ $(document).on('click','.dropdown-menu li a',function(){
     $("#campaign_charity_id").attr("value", charityId);
 });
 
+
 /*
  * 	Character Count Plugin - jQuery plugin
  * 	Dynamic character count for text areas and input fields

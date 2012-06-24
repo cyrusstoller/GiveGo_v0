@@ -10,18 +10,22 @@
   <div class="span8">
     <!--User Details -->
     <div id="user-details" class="row">
-      <div class="span1">
-        <img src="/assets/blank.png" style="float:left" />
+      <div class="span2">
+        <img src="/assets/augface.jpg" style="float:left" />
       </div>
-      <div class="span4">
-        <h3>John Doe<%= @campaign.owner.name rescue nil %></h3>
+      <div class="span5">
+        <h3><%= @campaign.owner.name rescue nil %></h3>
         <div><%= @campaign.message rescue nil %></div>
       </div>
     </div>
     <!--Charity Details -->
     <div id="charity-details">
-      <h3>Charity<%= @campaign.charity.name rescue nil %></h3>
+      <br/><br/>
+      <h3>The Leukemia & Lymphoma Society<%= @campaign.charity.name rescue nil %></h3>
       <div>
+        The Leukemia & Lymphoma Society (LLS) is the largest voluntary cancer research agency specifically focused on finding cures and better treatments for blood cancer patients. With the scope and scale to fund many projects at the same time, LLS supports hundreds of cancer scientists around the world. 
+    <a href="http://www.lls.org/">http://www.lls.org/</a><br/><br/>
+    <iframe width="500" height="315" src="http://www.youtube.com/embed/2MVcG9lzRYA" frameborder="0" allowfullscreen></iframe>
         <%= @campaign.charity.description rescue nil %>
       </div>
     </div>
@@ -58,23 +62,21 @@
 
     <!-- Campaign Details -->
     <div>
+      <br/><br/>
       <h4>Dates</h4>
       <%= @campaign.start_date %> &mdash; <%= @campaign.end_date %>
     </div>
           
     <div>  
-      <h4>Total Raised</h4>
-      <%= number_to_currency(@campaign.total_raised, :precision => 2) %>
+      <%= number_to_currency(@campaign.total_raised, :precision => 2) %> Raised
     </div>
 
     <div>
-      <h4>Pledged per mile</h4>
-      <%= number_to_currency(@campaign.total_per_mile, :precision => 2) %>
+      <%= number_to_currency(@campaign.total_per_mile, :precision => 2) %> Pledged per mile
     </div>
 
     <div>
-      <h4>Total Miles</h4>
-      <%= @campaign.total_miles %>
+      <%= @campaign.total_miles %> Total mile logged
     </div>
 
     <div class="progress">
