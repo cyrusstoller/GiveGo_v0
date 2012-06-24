@@ -38,6 +38,9 @@
         </tr>
       </tbody>
     </table>
+    
+    <h4>Share this link with your friends</h4>
+    <%= text_field_tag nil, campaign_url(@campaign), :class => "span8", :readonly => "readonly" %>
 
     <div class="form-actions">
       <%= link_to t('.back', :default => t("helpers.links.back")),
