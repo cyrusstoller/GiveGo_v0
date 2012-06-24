@@ -4,44 +4,29 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<div class="row">
-  <div class="span8">
-    <table class="table table-striped table-bordered">
-      <tbody>
-        <tr>
-          <td>Owner</td>
-          <td><%= @campaign.owner.name rescue nil %></td>
-        </tr>
-        <tr>
-          <td>Charity</td>
-          <td>
-            <%= @campaign.charity.name rescue nil %>
-            <br>
-            <%= @campaign.charity.description rescue nil %>
-          </td>
-        </tr>
-        <tr>
-          <td>Dates</td>
-          <td><%= @campaign.start_date %> &mdash; <%= @campaign.end_date %></td>
-        </tr>
-        <tr>
-          <td>Total Raised</td>
-          <td><%= number_to_currency(@campaign.total_raised, :precision => 2) %></td>
-        </tr>
-        <tr>
-          <td>Pledged per mile</td>
-          <td><%= number_to_currency(@campaign.total_per_mile, :precision => 2) %></td>
-        </tr>
-        <tr>
-          <td>Total Miles</td>
-          <td><%= @campaign.total_miles %></td>
-        </tr>
-      </tbody>
-    </table>
-    
-    <h4>Share this link with your friends</h4>
-    <%= text_field_tag nil, campaign_url(@campaign), :class => "span8", :readonly => "readonly" %>
 
+<div class="row">
+  
+  <div class="span8">
+    <!--User Details -->
+    <div id="user-details" class="row">
+      <div class="span1">
+        <img src="/assets/blank.png" style="float:left" />
+      </div>
+      <div class="span4">
+        <h3>John Doe<%= @campaign.owner.name rescue nil %></h3>
+        <div><%= @campaign.message rescue nil %></div>
+      </div>
+    </div>
+    <!--Charity Details -->
+    <div id="charity-details">
+      <h3>Charity<%= @campaign.charity.name rescue nil %></h3>
+      <div>
+        <%= @campaign.charity.description rescue nil %>
+      </div>
+    </div>
+
+    <!-- TEMP -->
     <div class="form-actions">
       <%= link_to t('.back', :default => t("helpers.links.back")),
                   campaigns_path, :class => 'btn'  %>
@@ -55,7 +40,10 @@
     </div>
   </div>
 
+  
   <div class="span4">
+
+    <!--Action Steps -->
     <% if @campaign.owner_id == session[:user_id] %>
       <!-- This is you -->
       <%= render "campaign_user_relationships/my_campaign", :campaign => @campaign %>
@@ -67,5 +55,41 @@
       <%= render "campaign_user_relationships/remove_sponsorship", 
           :campaign_user_relationship =>  @campaign.campaign_user_relationships.find_by_user_id(session[:user_id]) %>
     <% end %>
+
+    <!-- Campaign Details -->
+    <div>
+      <h4>Dates</h4>
+      <%= @campaign.start_date %> &mdash; <%= @campaign.end_date %>
+    </div>
+          
+    <div>  
+      <h4>Total Raised</h4>
+      <%= number_to_currency(@campaign.total_raised, :precision => 2) %>
+    </div>
+
+    <div>
+      <h4>Pledged per mile</h4>
+      <%= number_to_currency(@campaign.total_per_mile, :precision => 2) %>
+    </div>
+
+    <div>
+      <h4>Total Miles</h4>
+      <%= @campaign.total_miles %>
+    </div>
+
+    <div class="progress">
+      <div class="bar" style="width: 60%;"></div>
+    </div>
+
+    <!-- Share Options -->
+    <div>
+      <h3>Share</h3>
+      <h4>Share this link with your friends</h4>
+      <%= text_field_tag nil, campaign_url(@campaign), :class => "span4", :readonly => "readonly" %>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="givegoco">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      <div class="fb-like" data-href="http://givego.co" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+    </div>
+
   </div>
 </div>
