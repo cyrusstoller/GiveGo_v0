@@ -1,23 +1,27 @@
-<p>
-  <b>Name:</b>
-  <%= @charity.name %>
-</p>
+<%- model_class = @charity.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <b>Description:</b>
-  <%= @charity.description %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @charity.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @charity.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:video_link) %>:</strong></dt>
+  <dd><%= @charity.video_link %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:video_type) %>:</strong></dt>
+  <dd><%= @charity.video_type %></dd>
+</dl>
 
-<p>
-  <b>Video link:</b>
-  <%= @charity.video_link %>
-</p>
-
-<p>
-  <b>Video type:</b>
-  <%= @charity.video_type %>
-</p>
-
-
-<%= link_to 'Edit', edit_charity_path(@charity) %> |
-<%= link_to 'Back', charities_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              charities_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_charity_path(@charity), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              charity_path(@charity),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

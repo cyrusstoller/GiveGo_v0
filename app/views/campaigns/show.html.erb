@@ -1,29 +1,31 @@
-<p>
-  <b>Owner:</b>
-  <%= @campaign.owner_id %>
-</p>
+<%- model_class = @campaign.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <b>Start dat:</b>
-  <%= @campaign.start_date %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:owner_id) %>:</strong></dt>
+  <dd><%= @campaign.owner_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
+  <dd><%= @campaign.start_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
+  <dd><%= @campaign.end_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:charity_id) %>:</strong></dt>
+  <dd><%= @campaign.charity_id %></dd>
+</dl>
 
-<p>
-  <b>End date:</b>
-  <%= @campaign.end_date %>
-</p>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              campaigns_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_campaign_path(@campaign), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              campaign_path(@campaign),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <b>Charity:</b>
-  <%= @campaign.charity_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
-<%= link_to 'Back', campaigns_path %>
-
-
-<h2><!--Fundraiser's Name -->'s Campaign</h2>
 
 <div id="fundraiser">
    <div id="photo">  
