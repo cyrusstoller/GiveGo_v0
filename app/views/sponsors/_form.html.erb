@@ -1,0 +1,32 @@
+<%= form_for @sponsor, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :user_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :user_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :amount_per_mile, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :amount_per_mile, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :paid, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :paid, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :receipt_token, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :receipt_token, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                sponsors_path, :class => 'btn' %>
+  </div>
+<% end %>
