@@ -1,5 +1,3 @@
-# require 'httparty'
-
 class PagesController < ApplicationController
   def welcome
     if session[:access_token]

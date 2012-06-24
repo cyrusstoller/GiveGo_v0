@@ -5,16 +5,6 @@ default_url_options:
   
 singly_api_base: https://api.singly.com
 
-trigger_words:
-  -  hopeless
-  -  sad
-  -  disappointed
-  -  depressed
-  -  inadequate
-  -  mourn
-  -  dejected
-  -  suicidal
-
   # -  disappointing
   # -  tragedy
   # -  inconsolable
