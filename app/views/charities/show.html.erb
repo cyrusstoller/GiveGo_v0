@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%= @charity.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @charity.description %>
+</p>
+
+<p>
+  <b>Video link:</b>
+  <%= @charity.video_link %>
+</p>
+
+<p>
+  <b>Video type:</b>
+  <%= @charity.video_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_charity_path(@charity) %> |
+<%= link_to 'Back', charities_path %>

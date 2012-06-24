@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120624033301) do
+ActiveRecord::Schema.define(:version => 20120624034247) do
 
   create_table "campaigns", :force => true do |t|
     t.integer  "owner_id"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(:version => 20120624033301) do
     t.integer  "charity_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "charities", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "video_link"
+    t.integer  "video_type"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end
