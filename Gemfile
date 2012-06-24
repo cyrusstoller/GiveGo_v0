@@ -52,6 +52,7 @@ gem "will_paginate", "~> 3.0"
 gem 'foreman'
 gem 'heroku'
 
+gem 'omniauth-singly'
 gem 'httparty'
 
 # To use ActiveModel has_secure_password

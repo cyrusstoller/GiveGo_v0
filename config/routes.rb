@@ -10,7 +10,10 @@ GiveGo::Application.routes.draw do
   match '/create'    => 'pages#create',    :as => "create",    :via => :get
   match '/sponsor'    => 'pages#sponsor',    :as => "sponsor",    :via => :get
   
-
+  # singly
+  match "auth/:service"          => "auth#service"
+  match "auth/:service/callback" => "auth#callback"
+  match "logout"                 => "auth#logout"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
