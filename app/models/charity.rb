@@ -14,4 +14,7 @@
 
 class Charity < ActiveRecord::Base
   attr_accessible :description, :name, :video_link, :video_type
+  
+  validates_presence_of :name
+  validates_presence_of :description
 end

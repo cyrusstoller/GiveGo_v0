@@ -1,13 +1,16 @@
 # == Schema Information
-# Schema version: 20120624055154
+# Schema version: 20120624085920
 #
 # Table name: campaign_user_relationships
 #
-#  id          :integer         not null, primary key
-#  campaign_id :integer
-#  user_id     :integer
-#  created_at  :datetime        not null
-#  updated_at  :datetime        not null
+#  id              :integer         not null, primary key
+#  campaign_id     :integer
+#  user_id         :integer
+#  created_at      :datetime        not null
+#  updated_at      :datetime        not null
+#  amount_per_mile :float
+#  paid            :boolean
+#  receipt_token   :string(255)
 #
 
 require 'spec_helper'

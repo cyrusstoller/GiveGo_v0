@@ -16,4 +16,8 @@ class Activity < ActiveRecord::Base
   attr_accessible :activity_type, :campaign_id, :distance, :stardate
   
   belongs_to :campaign
+  
+  validates_presence_of :distance
+  validates_presence_of :stardate
+  validates_presence_of :campaign_id
 end

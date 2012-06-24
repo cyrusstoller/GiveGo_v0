@@ -1,8 +1,9 @@
 GiveGo::Application.routes.draw do
+
   resources :charities
   resources :campaigns
   resources :activities
-  resources :sponsors
+
 
   root :to => 'pages#welcome'
 
