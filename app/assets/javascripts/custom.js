@@ -5,12 +5,19 @@ $(function(){
 	$('.datepicker').datepicker()
 	$('.dropdown-toggle').dropdown()
 	$("#message_count").charCount({
-    allowed: 120,
-    warning: 100,
-    counterText: 'Characters left: '
-});
+	    allowed: 120,
+	    warning: 100,
+	    counterText: 'Characters left: '
+	});
 });
 
+
+$(document).on('click','.dropdown-menu li a',function(){
+    var text = $(this).text();
+    var id = $(this).attr('id');
+    $(this).closest('.dropdown').children('a.dropdown-toggle').text(text);
+    $("#" + id +' -details').show();
+});
 
 /*
  * 	Character Count Plugin - jQuery plugin
