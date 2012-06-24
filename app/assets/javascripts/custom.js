@@ -5,12 +5,26 @@ $(function(){
 	$('.datepicker').datepicker()
 	$('.dropdown-toggle').dropdown()
 	$("#message_count").charCount({
-    allowed: 120,
-    warning: 100,
-    counterText: 'Characters left: '
-});
+	    allowed: 120,
+	    warning: 100,
+	    counterText: 'Characters left: '
+	});
 });
 
+
+$(document).on('click','.dropdown-menu li a',function(){
+    var text = $(this).text();
+    var id = $(this).attr('id');
+    $(this).closest('.dropdown').children('a.dropdown-toggle').text(text);
+   
+    $("#charity1-details").slideUp("slow");
+    $("#charity2-details").slideUp("slow");
+    $("#charity3-details").slideUp("slow");
+    $("#charity4-details").slideUp("slow");
+    $("#charity5-details").slideUp("slow");
+
+    $("#" + id +"-details").slideDown("fast");
+});
 
 /*
  * 	Character Count Plugin - jQuery plugin
