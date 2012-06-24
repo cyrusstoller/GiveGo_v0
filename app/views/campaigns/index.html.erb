@@ -2,23 +2,13 @@
 <br><br>
   <h1>My Campaigns</h1>
 <table class="table table-striped">
-  <thead>
-    <tr>
-<th><%= model_class.human_attribute_name(:charity_id) %></th>
-      <th>Total Raised</th>
-      <th>Time Remaining</th>
-      
-      
 
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
   <tbody>
     <% @campaigns.each do |campaign| %>
       <tr>
 <td><%= link_to campaign.charity_id, campaign_path(campaign) %></td>
-        <td>$300.00</td>
-        <td>30 days</td>
+        <td>$300.00 raised</td>
+        <td>30 days remaining</td>
         
         
 
@@ -49,22 +39,13 @@
 
 <h1>Friend's Campaigns</h1>
 <table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:charity_id) %></th>
-      <th><%= model_class.human_attribute_name(:owner_id) %></th>
-      <th>Total Raised</th>
-      <th>Time Remaining</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
   <tbody>
     <% @campaigns.each do |campaign| %>
       <tr>
         <td><%= campaign.charity_id %></td>
         <td><%= campaign.owner_id %></td>
-         <td>$300.00</td>
-        <td>30 days</td>
+         <td>$300.00 raised</td>
+        <td>30 days remaining</td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_campaign_path(campaign), :class => 'btn btn-mini' %>
@@ -86,22 +67,13 @@
 <br>
 <h1>Top Campaigns</h1>
 <table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:charity_id) %></th>
-      <th><%= model_class.human_attribute_name(:owner_id) %></th>
-      <th>Total Raised</th>
-      <th>Time Remaining</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
   <tbody>
     <% @campaigns.each do |campaign| %>
       <tr>
         <td><%= campaign.charity_id %></td>
         <td><%= campaign.owner_id %></td>
-         <td>$300.00</td>
-        <td>30 days</td>
+         <td>$300.00 raised</td>
+        <td>30 days remaining</td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_campaign_path(campaign), :class => 'btn btn-mini' %>
