@@ -19,4 +19,6 @@ class Campaign < ActiveRecord::Base
   
   has_many :campaign_user_relationships
   has_many :sponsors, :through => :campaign_user_relationships, :source => :user
+  
+  has_many :activities
 end

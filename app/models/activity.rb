@@ -14,4 +14,6 @@
 
 class Activity < ActiveRecord::Base
   attr_accessible :activity_type, :campaign_id, :distance, :stardate
+  
+  belongs_to :campaign
 end
