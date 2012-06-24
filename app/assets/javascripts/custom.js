@@ -16,7 +16,14 @@ $(document).on('click','.dropdown-menu li a',function(){
     var text = $(this).text();
     var id = $(this).attr('id');
     $(this).closest('.dropdown').children('a.dropdown-toggle').text(text);
-    $("#" + id +' -details').show();
+   
+    $("#charity1-details").slideUp("slow");
+    $("#charity2-details").slideUp("slow");
+    $("#charity3-details").slideUp("slow");
+    $("#charity4-details").slideUp("slow");
+    $("#charity5-details").slideUp("slow");
+
+    $("#" + id +"-details").slideDown("fast");
 });
 
 /*
