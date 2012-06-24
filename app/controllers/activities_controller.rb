@@ -87,6 +87,13 @@ class ActivitiesController < ApplicationController
   private
   
   def authenticate_user
+    if params[:fb_id].present?
+      @user = User.find_by_fb_id(params[:fb_id])
+      unless @user.nil?
+        return
+      end
+    end
+    
     if session[:user_id].nil?
       flash[:error] = "Oops you need to be signed in."
       redirect_to root_path

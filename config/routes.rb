@@ -3,7 +3,7 @@ GiveGo::Application.routes.draw do
   resources :charities
   resources :campaigns
   resources :activities
-
+  resources :campaign_user_relationships, :except => [:index, :show, :new]
 
   root :to => 'pages#welcome'
 

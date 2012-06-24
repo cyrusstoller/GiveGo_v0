@@ -22,5 +22,4 @@ class CampaignUserRelationship < ActiveRecord::Base
   validates_presence_of :campaign_id
   validates_presence_of :user_id
   validates_presence_of :amount_per_mile
-  validates_presence_of :paid
 end

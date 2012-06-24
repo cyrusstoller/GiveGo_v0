@@ -25,19 +25,15 @@
         </ul>
         <% if session[:access_token] %>
         <ul class="nav pull-right">
-                           <li id="fat-menu" class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Max Schultz <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      
-                      <li style="margin: 10px; font-size: 17px; color: #999;">Raised $100</li>
-                      <li class="divider"></li>
-                      <li><%= link_to "Sign Out", logout_path %></li>
-                    </ul>
-                  </li>
-
-          
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li style="margin: 10px; font-size: 17px; color: #999;">Raised $100</li>
+              <li class="divider"></li>
+              <li><%= link_to "Sign Out", logout_path %></li>
+            </ul>
+          </li
         </ul>
-
         <% end %>          
       </div>
  
