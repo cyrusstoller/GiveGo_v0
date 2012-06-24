@@ -1,0 +1,47 @@
+@import "bootstrap";
+
+body{
+	padding-top: 70px;
+}
+
+@import "bootstrap-responsive";
+
+.inline {
+	display:inline;
+}
+
+.center {
+	text-align:center;
+}
+
+.red {
+	color: red;
+}
+
+.back-red{
+	background-color:red;
+}
+
+.logotype {
+font-size: 140px;
+font-family: 'Fredoka One';
+font-style: italic;
+margin-bottom: 80px;
+margin-top: 15%;
+
+
+}
+
+.facebookconnect {
+
+margin-bottom: 200px;
+
+}
+
+.navbar .brand {
+
+font-size: 35px;
+padding: 4px 20px 12px;
+color: #fff;
+
+}
