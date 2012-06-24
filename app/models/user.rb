@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   has_many :sponsorships, :class_name => "Sponsor", :foreign_key => "user_id"
   
   belongs_to :current_campaign, :class_name => "Campaign", :foreign_key => "current_campaign_id"
+  
+  validates_presence_of :fb_id
+  validates_presence_of :name
+  validates_presence_of :email
 end

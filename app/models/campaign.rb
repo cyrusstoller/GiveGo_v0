@@ -22,4 +22,8 @@ class Campaign < ActiveRecord::Base
   has_many :sponsors, :through => :campaign_user_relationships, :source => :user
   
   has_many :activities
+  
+  validates_presence_of :owner_id
+  validates_presence_of :message
+  validates_presence_of :charity_id
 end
