@@ -1,4 +1,8 @@
+require 'httparty'
+
 class ActivitiesController < ApplicationController
+  include ActionView::Helpers::NumberHelper
+  
   before_filter :authenticate_user
   
   # GET /activities
@@ -47,6 +51,13 @@ class ActivitiesController < ApplicationController
     
     respond_to do |format|
       if @activity.save
+        
+        total = @activity.campaign.total_per_mile * @activity.distance
+        
+        message = "I just raised #{number_to_currency(total, :precision => 2)} for Charity Water with GiveGo beta to get on our waiting list go to http://signup.givego.co"
+        query = {:message => message, :access_token => session[:access_token]}
+        HTTParty.post(APP_CONFIG["singly_api_base"] + "/v0/proxy/facebook/#{@user.fb_id}/feed", :query => query)
+        
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
         format.json { render json: @activity, status: :created, location: @activity }
       else
