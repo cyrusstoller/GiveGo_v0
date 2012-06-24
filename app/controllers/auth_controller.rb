@@ -15,8 +15,9 @@ class AuthController < ApplicationController
         
         name = res[0]["data"]["name"]
         email = res[0]["data"]["email"]
+        p_url = "https://graph.facebook.com/#{facebook_id}/picture?type=large"
         
-        u = User.create!(:fb_id => facebook_id, :name => name, :email => email)
+        u = User.create!(:fb_id => facebook_id, :name => name, :email => email, :profile_image_url => p_url)
         session[:user_id] = u.id
       else
         # sign in user
