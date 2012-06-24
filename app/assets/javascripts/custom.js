@@ -15,15 +15,18 @@ $(function(){
 $(document).on('click','.dropdown-menu li a',function(){
     var text = $(this).text();
     var id = $(this).attr('id');
+    var charityId = $(this).attr('data-charity-id');
     $(this).closest('.dropdown').children('a.dropdown-toggle').text(text);
-   
+
     $("#charity1-details").slideUp("slow");
     $("#charity2-details").slideUp("slow");
     $("#charity3-details").slideUp("slow");
     $("#charity4-details").slideUp("slow");
     $("#charity5-details").slideUp("slow");
 
-    $("#" + id +"-details").slideDown("fast");
+    $("#" + id + "-details").slideDown("fast");
+
+    $("#campaign_charity_id").attr("value", charityId);
 });
 
 /*
