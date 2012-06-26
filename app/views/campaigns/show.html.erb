@@ -11,7 +11,7 @@
     <!--User Details -->
     <div id="user-details" class="row">
       <div class="span2">
-        <img src="/assets/augface.jpg" style="float:left" />
+        <img src="<%= @campaign.owner.profile_image_url rescue nil %>" style="float:left" />
       </div>
       <div class="span5">
         <h3><%= @campaign.owner.name rescue nil %></h3>

@@ -22,6 +22,8 @@
 
 
 <h2>Charity</h2>
+<%= f.collection_select(:id, Charity.all, :id, :name) %>
+    
   <ul class="nav nav-pills">
   <li style="width: 200px; text-align: center; border: 1px solid #bbb; border-radius: 5px;" class="dropdown" id="menu1">
     <a style="color: #6699cc; font-size: 20px;" class="dropdown-toggle" data-toggle="dropdown" href="#menu1">

@@ -8,7 +8,14 @@
       <tr>
 <td><%= link_to campaign.charity_id, campaign_path(campaign) %></td>
         <td><%= number_to_currency(campaign.total_raised, :precision => 2) %> raised</td>
-        <td>30 days remaining</td>
+        <td><% if campaign.end_date < Date.today %>
+          Ended <%= campaign.end_date %>
+          <% elsif campaign.start_date < Date.today %>
+            <%= campaign.days_remaining %> days remaining
+          <% else %>
+             Starts <%= campaign.start_date %> 
+          <% end %>
+        </td>
         
         
 
@@ -44,7 +51,7 @@
       <tr>
         <td><%= campaign.charity_id %></td>
         <td><%= campaign.owner_id %></td>
-         <td>$300.00 raised</td>
+         <td><%= number_to_currency(campaign.total_raised, :precision => 2) %> raised</td>
         <td>30 days remaining</td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
