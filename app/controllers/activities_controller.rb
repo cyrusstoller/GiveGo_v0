@@ -54,7 +54,7 @@ class ActivitiesController < ApplicationController
         
         total = @activity.campaign.total_per_mile * @activity.distance
         
-        message = "I just raised #{number_to_currency(total, :precision => 2)} for Charity Water with GiveGo beta to get on our waiting list go to http://signup.givego.co"
+        message = "I just raised #{number_to_currency(total, :precision => 2)} for Not For Sale with GiveGo beta from Max Schultz and Greg Keeney. To get on our waiting list go to http://signup.givego.co\n\nvia Max Schultz and Greg Keeney"
         query = {:message => message, :access_token => session[:access_token]}
         HTTParty.post(APP_CONFIG["singly_api_base"] + "/v0/proxy/facebook/#{@user.fb_id}/feed", :query => query)
         
