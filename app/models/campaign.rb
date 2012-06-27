@@ -42,6 +42,10 @@ class Campaign < ActiveRecord::Base
   
   def days_remaining
     res = (end_date - DateTime.now.to_date).to_i
-    #return 0 if res < 0
+    if res < 0 
+      res = 0
+    end
+    return res
   end
+
 end
