@@ -53,7 +53,6 @@ margin:0 auto;
 padding: 10px; 
 margin-top: 50px;
 		text-align:left;
-		height:48em;
 		max-width:65em;
 		clear:left;
 		text-align: center; background: rgb(54, 25, 25); /* Fall-back for browsers that don't support rgba */
@@ -62,4 +61,35 @@ margin-top: 50px;
     border: 1px solid #ccc;
     box-shadow: 0px 2px 3px #000;
 
+}
+
+.lrdiscoverwidget{
+  margin-top: 50px;
+}
+
+.lrcontent{
+  margin: 0px auto !important;
+}
+
+.site-tagline{
+  display: none;
+}
+
+.site-desc{
+  display: none;
+}
+
+.site-desc{
+  color: white !important;
+}
+
+.dark-b .site{
+  background: none;
+}
+.inviteform{
+  text-align: left;
+}
+
+.inviteform label{
+  color: white;
 }
